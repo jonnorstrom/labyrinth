@@ -26,8 +26,10 @@ function sleep(milliseconds) {
 function movePlayer(direction) {
   console.log(direction);
   var $current = $('.whole-board').find('td.maze-walker');
+  console.log($current.get(0));
   var $parent = $current.parent();
   var id = ($current.index());
+  console.log(id);
   if (direction === "left") {
       $current.prev().addClass('maze-walker');
   } else if (direction === "right") {
@@ -38,7 +40,6 @@ function movePlayer(direction) {
       $parent.next().find("td:eq("+id+")").addClass('maze-walker');
   }
   $current.removeClass('maze-walker');
-  sleep(500);
 }
 
 $(document).ready(function(){
@@ -79,14 +80,27 @@ $(document).ready(function(){
       url: `/boards/${board_id}`
     });
 
-    request.done(function(allMoves){
+    var allMoves = request.done(function(allMoves){
       // animate, one step at a time by iterating through response['moves'] array.
-      allMoves.moves.pop();
+
+      // trying to force the animation to happen one instance at a time, still didn't work
+      // allMoves.moves;
+      // movePlayer(allMoves.moves[0]);
+      // sleep(500);
+      // movePlayer(allMoves.moves[1]);
+      // sleep(500);
+      // movePlayer(allMoves.moves[2]);
+
+
+      // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
       for (var i = 0; i < allMoves.moves.length; i++) {
-        sleep(400);
         movePlayer(allMoves.moves[i]);
+        sleep(400);
         // setTimeout(movePlayer(allMoves.moves[move]), 2000);
       }
     });
+    // random testing, ignore next 2 lines
+    // sleep(2000);
+    // console.log(allMoves)
   });
 });

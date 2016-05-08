@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  // $('.cell').toggle(
+  //   function(){$(this).css({"background-color":"green"});},
+  //   function(){$(this).css({"background-color":"red"});}
+  // });
+  $('.cell').on('click', function(){
+    if ($(this).hasClass('wall')){
+      $(this).removeClass('wall');
+      $(this).addClass('path');
+    } else if ($(this).hasClass('path')){
+      $(this).removeClass('path');
+    } else {
+    $(this).addClass('wall');
+    };
+    var tens = ($(this).parent().index())
+    var ones = ($(this).index())
+    var id = (tens*10) + ones
+    $.ajax({
+      url: '/lisa'
+      method: 'post'
+      data: {number: id}
+    })
+  })
+});

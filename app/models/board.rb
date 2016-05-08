@@ -1,7 +1,13 @@
 class Board < ActiveRecord::Base
 
 
-
+  def make_maze(maze_string)
+    @maze_array = []
+    10.times do
+      row = maze_string.slice(0..9)
+      @maze_array << row.chars
+    end
+  end
 
 
 
@@ -11,7 +17,7 @@ class Board < ActiveRecord::Base
   #   @starting_point = {y: 0, x: 0}
   #   @finishing_point = {y: 0, x: 0}
   #   @current_location = @starting_point
-  #   @maze = []
+  #   @maze = [[][][]]
   #   @visited_spots = []
   #   $moves_counter = 0
   #   $recursion_counter = 0
@@ -26,14 +32,14 @@ class Board < ActiveRecord::Base
   end
 
   def read_maze
-    @width = @maze[0].length - 1
-    @height = @maze.length - 1
+    @width = @maze_array[0].length - 1
+    @height = @maze_array.length - 1
   end
 
   def space(y, x)
-    if @maze[y][x] == 'o'
+    if @maze_array[y][x] == 'o'
       return "starting"
-    elsif @maze[y][x] == '#'
+    elsif @maze_array[y][x] == '#'
       return "wall"
     elsif visited?(y, x)
       return "visited"
@@ -50,12 +56,12 @@ class Board < ActiveRecord::Base
   end
 
   def finished?
-    @maze[@current_location[:y]][current_location[:x]] == '*'
+    @maze_array[@current_location[:y]][current_location[:x]] == '*'
   end
 
   def find_start(y)
     x = 0
-    @maze[y].each do |spot|
+    @maze_array[y].each do |spot|
       if spot == "o"
         @current_location = {:y => y, :x => x}
         key = {:y => y, :x => x}
@@ -69,7 +75,7 @@ class Board < ActiveRecord::Base
 
   def find_finish(y)
     x = 0
-    @maze[y].each do |spot|
+    @maze_array[y].each do |spot|
       if spot == "*"
         key = {:y => y, :x => x}
         return key
@@ -140,17 +146,17 @@ class Board < ActiveRecord::Base
 
       # p "Old location:"
       old_location = @current_location
-      @maze[@current_location[:y]][current_location[:x]] = '.'
+      @maze_array[@current_location[:y]][current_location[:x]] = '.'
       # p old_location
       # p "New location:"
       @current_location = {
                             y: possible_moves[counter][:y],
                             x: possible_moves[counter][:x]
                           }
-      @maze[@current_location[:y]][current_location[:x]] = 'o' if !finished?
+      @maze_array[@current_location[:y]][current_location[:x]] = 'o' if !finished?
       reset_screen
-      puts pretty_board(@maze)
-      sleep(0.05)
+      puts pretty_board(@maze_array)
+      sleep(0.08)
       # p @current_location
       @visited_spots << @current_location
       last_move = possible_moves[counter][:direction]

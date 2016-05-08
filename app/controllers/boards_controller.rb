@@ -29,10 +29,8 @@ class BoardsController < ApplicationController
     @board.moves.shift
     @all_moves = @board.moves
 
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @all_moves }
-    # end
-    render 'index'
+    respond_to do |format|
+      format.json { render :json => { moves: @all_moves} }
+    end
   end
 end

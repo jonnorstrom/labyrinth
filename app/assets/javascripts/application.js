@@ -25,23 +25,26 @@ $(document).ready(function(){
     var id = (tens*10) + ones
     var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
 
-    if ($(this).hasClass('wall')){
+    if ($(this).hasClass('wall')){ // 2, starting point
       $(this).removeClass('wall');
-      $(this).addClass('path');
-      var thing = 'path'
-    } else if ($(this).hasClass('path')){
-      $(this).removeClass('path');
-      var thing = 'nothing'
-    } else {
+      $(this).addClass('maze-walker');
+      // var thing = 'maze-walker'
+    } else if ($(this).hasClass('maze-walker')){ // 3, finish line
+      $(this).removeClass('maze-walker');
+      $(this).addClass('finish-line');
+      // var thing = 'finish-line'
+    } } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
+      $(this).removeClass('finish-line');
+      // var thing = 'finish-line'
+    } else { // 1, wall
       $(this).addClass('wall');
-      var thing = 'wall'
+      // var thing = 'wall'
     };
     $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
       datatype: 'json',
-      data: {number: id, display: thing}
+      data: {number: id}
     });
-    // var board_id = $(this).parent().parent().parent().attr('id').replace(/\D+/, '')
   })
 });

@@ -15,4 +15,10 @@ class BoardsController < ApplicationController
     @board.save
     render 'index'
   end
+
+  def show
+    @board = Board.find(params[:id])
+    
+    render 'index'
+  end
 end

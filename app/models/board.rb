@@ -24,8 +24,13 @@ class Board < ActiveRecord::Base
   # end
 
   def run
+    @visited_spots = []
+    $moves_counter = 0
+    $recursion_counter = 0
+
     read_maze
     @starting_point = find_start(0)
+    @current_location = @starting_point
     @finishing_point = find_finish(0)
     possible_moves = check_neighbors(find_neighbors)
     move_player(possible_moves)

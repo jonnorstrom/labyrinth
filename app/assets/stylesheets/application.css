@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+td {
+  height: 20px;
+  width: 20px;
+  border: 1px black solid;
+}
+
+td.wall {
+  background-color: rgb(50, 230, 78)
+}
+
+td.path {
+  background-color: rgb(240, 30, 78)
+}

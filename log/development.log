@@ -37648,3 +37648,2006 @@ Processing by BoardsController#show as */*
   Rendered boards/_board.html.erb (0.1ms)
   Rendered boards/index.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (11.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Boards (20160508051617)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "boards" ("id" serial primary key, "maze" character varying DEFAULT '.' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160508051617"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'boards'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2016-05-08 12:40:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards" for ::1 at 2016-05-08 12:40:56 -0500
+Processing by BoardsController#index as HTML
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "boards" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-08 17:40:56.956456"], ["updated_at", "2016-05-08 17:40:56.956456"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".."], ["updated_at", "2016-05-08 17:40:56.962222"], ["id", 1]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..."], ["updated_at", "2016-05-08 17:40:56.971048"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...."], ["updated_at", "2016-05-08 17:40:56.973030"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....."], ["updated_at", "2016-05-08 17:40:56.974884"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......"], ["updated_at", "2016-05-08 17:40:56.977716"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......."], ["updated_at", "2016-05-08 17:40:56.979901"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........"], ["updated_at", "2016-05-08 17:40:56.982429"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........."], ["updated_at", "2016-05-08 17:40:56.985706"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........."], ["updated_at", "2016-05-08 17:40:56.987829"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........."], ["updated_at", "2016-05-08 17:40:56.989905"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............"], ["updated_at", "2016-05-08 17:40:56.991982"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............."], ["updated_at", "2016-05-08 17:40:56.994000"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............."], ["updated_at", "2016-05-08 17:40:56.996064"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............."], ["updated_at", "2016-05-08 17:40:56.998462"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................"], ["updated_at", "2016-05-08 17:40:57.001043"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................."], ["updated_at", "2016-05-08 17:40:57.003172"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................."], ["updated_at", "2016-05-08 17:40:57.005449"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................."], ["updated_at", "2016-05-08 17:40:57.007683"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................."], ["updated_at", "2016-05-08 17:40:57.009734"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................."], ["updated_at", "2016-05-08 17:40:57.011582"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................"], ["updated_at", "2016-05-08 17:40:57.013538"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................."], ["updated_at", "2016-05-08 17:40:57.016853"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................"], ["updated_at", "2016-05-08 17:40:57.019696"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................."], ["updated_at", "2016-05-08 17:40:57.021603"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................."], ["updated_at", "2016-05-08 17:40:57.023610"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................."], ["updated_at", "2016-05-08 17:40:57.025544"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................"], ["updated_at", "2016-05-08 17:40:57.027767"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................."], ["updated_at", "2016-05-08 17:40:57.029934"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................."], ["updated_at", "2016-05-08 17:40:57.032173"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................."], ["updated_at", "2016-05-08 17:40:57.034635"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................"], ["updated_at", "2016-05-08 17:40:57.036815"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................."], ["updated_at", "2016-05-08 17:40:57.038954"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................."], ["updated_at", "2016-05-08 17:40:57.041048"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................."], ["updated_at", "2016-05-08 17:40:57.043238"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................."], ["updated_at", "2016-05-08 17:40:57.045562"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................."], ["updated_at", "2016-05-08 17:40:57.047369"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................"], ["updated_at", "2016-05-08 17:40:57.050303"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................."], ["updated_at", "2016-05-08 17:40:57.052524"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................"], ["updated_at", "2016-05-08 17:40:57.054637"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................."], ["updated_at", "2016-05-08 17:40:57.056774"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................."], ["updated_at", "2016-05-08 17:40:57.058823"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................."], ["updated_at", "2016-05-08 17:40:57.065930"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................"], ["updated_at", "2016-05-08 17:40:57.069077"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................."], ["updated_at", "2016-05-08 17:40:57.071273"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................."], ["updated_at", "2016-05-08 17:40:57.073387"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................."], ["updated_at", "2016-05-08 17:40:57.075604"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................"], ["updated_at", "2016-05-08 17:40:57.077708"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................."], ["updated_at", "2016-05-08 17:40:57.079707"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................."], ["updated_at", "2016-05-08 17:40:57.081611"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................."], ["updated_at", "2016-05-08 17:40:57.084051"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................."], ["updated_at", "2016-05-08 17:40:57.086229"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................."], ["updated_at", "2016-05-08 17:40:57.088360"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................"], ["updated_at", "2016-05-08 17:40:57.090625"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................."], ["updated_at", "2016-05-08 17:40:57.092713"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................"], ["updated_at", "2016-05-08 17:40:57.094821"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................."], ["updated_at", "2016-05-08 17:40:57.096925"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................."], ["updated_at", "2016-05-08 17:40:57.099845"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................."], ["updated_at", "2016-05-08 17:40:57.102271"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................"], ["updated_at", "2016-05-08 17:40:57.104336"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................."], ["updated_at", "2016-05-08 17:40:57.106426"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................."], ["updated_at", "2016-05-08 17:40:57.108544"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................."], ["updated_at", "2016-05-08 17:40:57.110758"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................"], ["updated_at", "2016-05-08 17:40:57.112787"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................."], ["updated_at", "2016-05-08 17:40:57.114818"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................."], ["updated_at", "2016-05-08 17:40:57.117416"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................."], ["updated_at", "2016-05-08 17:40:57.120186"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................."], ["updated_at", "2016-05-08 17:40:57.122411"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................."], ["updated_at", "2016-05-08 17:40:57.124479"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................"], ["updated_at", "2016-05-08 17:40:57.126763"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................."], ["updated_at", "2016-05-08 17:40:57.128799"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................"], ["updated_at", "2016-05-08 17:40:57.130864"], ["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................."], ["updated_at", "2016-05-08 17:40:57.134167"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................."], ["updated_at", "2016-05-08 17:40:57.136269"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................."], ["updated_at", "2016-05-08 17:40:57.138338"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................"], ["updated_at", "2016-05-08 17:40:57.140476"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................."], ["updated_at", "2016-05-08 17:40:57.142598"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................."], ["updated_at", "2016-05-08 17:40:57.144765"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................."], ["updated_at", "2016-05-08 17:40:57.146972"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................"], ["updated_at", "2016-05-08 17:40:57.149503"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................."], ["updated_at", "2016-05-08 17:40:57.151410"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................."], ["updated_at", "2016-05-08 17:40:57.154227"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................."], ["updated_at", "2016-05-08 17:40:57.156376"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................."], ["updated_at", "2016-05-08 17:40:57.158520"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................................."], ["updated_at", "2016-05-08 17:40:57.160635"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................................"], ["updated_at", "2016-05-08 17:40:57.162865"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................................."], ["updated_at", "2016-05-08 17:40:57.164864"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................................"], ["updated_at", "2016-05-08 17:40:57.168256"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................................."], ["updated_at", "2016-05-08 17:40:57.170446"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................................."], ["updated_at", "2016-05-08 17:40:57.172648"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................................."], ["updated_at", "2016-05-08 17:40:57.174686"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................................"], ["updated_at", "2016-05-08 17:40:57.176871"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................................."], ["updated_at", "2016-05-08 17:40:57.178894"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................................."], ["updated_at", "2016-05-08 17:40:57.180926"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................................."], ["updated_at", "2016-05-08 17:40:57.183337"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................................"], ["updated_at", "2016-05-08 17:40:57.185491"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................................."], ["updated_at", "2016-05-08 17:40:57.187612"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................................."], ["updated_at", "2016-05-08 17:40:57.189343"], ["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................................."], ["updated_at", "2016-05-08 17:40:57.191790"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:40:57.193981"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.5ms)
+  Rendered boards/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 690ms (Views: 440.0ms | ActiveRecord: 82.5ms)
+
+
+Started GET "/assets/board.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/application.self-779315d5c84c709f0058e5ad2376c1731e6f2e47b85ed3a01357e88e6449261e.css?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/board.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/assets/application.self-c9a23876a72cf26b5023e3d550a5777be7b07ad0fe6f91eee8dbc7cb9b9b3358.js?body=1" for ::1 at 2016-05-08 12:40:57 -0500
+
+
+Started GET "/boards" for ::1 at 2016-05-08 12:42:06 -0500
+Processing by BoardsController#index as HTML
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "boards" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-08 17:42:06.887286"], ["updated_at", "2016-05-08 17:42:06.887286"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".."], ["updated_at", "2016-05-08 17:42:06.889769"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..."], ["updated_at", "2016-05-08 17:42:06.892089"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...."], ["updated_at", "2016-05-08 17:42:06.894123"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....."], ["updated_at", "2016-05-08 17:42:06.896408"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......"], ["updated_at", "2016-05-08 17:42:06.900337"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......."], ["updated_at", "2016-05-08 17:42:06.903178"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........"], ["updated_at", "2016-05-08 17:42:06.910652"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........."], ["updated_at", "2016-05-08 17:42:06.912984"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........."], ["updated_at", "2016-05-08 17:42:06.915972"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........."], ["updated_at", "2016-05-08 17:42:06.918407"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............"], ["updated_at", "2016-05-08 17:42:06.920708"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............."], ["updated_at", "2016-05-08 17:42:06.923017"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............."], ["updated_at", "2016-05-08 17:42:06.925666"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............."], ["updated_at", "2016-05-08 17:42:06.927943"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................"], ["updated_at", "2016-05-08 17:42:06.930178"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................."], ["updated_at", "2016-05-08 17:42:06.932671"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................."], ["updated_at", "2016-05-08 17:42:06.935117"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................."], ["updated_at", "2016-05-08 17:42:06.937432"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................."], ["updated_at", "2016-05-08 17:42:06.939793"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................."], ["updated_at", "2016-05-08 17:42:06.942174"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................"], ["updated_at", "2016-05-08 17:42:06.944430"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................."], ["updated_at", "2016-05-08 17:42:06.947048"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................"], ["updated_at", "2016-05-08 17:42:06.949739"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................."], ["updated_at", "2016-05-08 17:42:06.952142"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................."], ["updated_at", "2016-05-08 17:42:06.954612"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................."], ["updated_at", "2016-05-08 17:42:06.957220"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................"], ["updated_at", "2016-05-08 17:42:06.959517"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................."], ["updated_at", "2016-05-08 17:42:06.961798"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................."], ["updated_at", "2016-05-08 17:42:06.964509"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................."], ["updated_at", "2016-05-08 17:42:06.967155"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................"], ["updated_at", "2016-05-08 17:42:06.969628"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................."], ["updated_at", "2016-05-08 17:42:06.972204"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................."], ["updated_at", "2016-05-08 17:42:06.974689"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................."], ["updated_at", "2016-05-08 17:42:06.977341"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................."], ["updated_at", "2016-05-08 17:42:06.979713"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................."], ["updated_at", "2016-05-08 17:42:06.982366"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................"], ["updated_at", "2016-05-08 17:42:06.984950"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................."], ["updated_at", "2016-05-08 17:42:06.987322"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................"], ["updated_at", "2016-05-08 17:42:06.989906"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................."], ["updated_at", "2016-05-08 17:42:06.992203"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................."], ["updated_at", "2016-05-08 17:42:06.994624"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................."], ["updated_at", "2016-05-08 17:42:06.997271"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................"], ["updated_at", "2016-05-08 17:42:07.000776"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................."], ["updated_at", "2016-05-08 17:42:07.003350"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................."], ["updated_at", "2016-05-08 17:42:07.006137"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................."], ["updated_at", "2016-05-08 17:42:07.008838"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................"], ["updated_at", "2016-05-08 17:42:07.011422"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................."], ["updated_at", "2016-05-08 17:42:07.014256"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................."], ["updated_at", "2016-05-08 17:42:07.017550"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................."], ["updated_at", "2016-05-08 17:42:07.020226"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................."], ["updated_at", "2016-05-08 17:42:07.023484"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................."], ["updated_at", "2016-05-08 17:42:07.026145"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................"], ["updated_at", "2016-05-08 17:42:07.028488"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................."], ["updated_at", "2016-05-08 17:42:07.030854"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................"], ["updated_at", "2016-05-08 17:42:07.033668"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................."], ["updated_at", "2016-05-08 17:42:07.036089"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................."], ["updated_at", "2016-05-08 17:42:07.038445"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................."], ["updated_at", "2016-05-08 17:42:07.040800"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................"], ["updated_at", "2016-05-08 17:42:07.043263"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................."], ["updated_at", "2016-05-08 17:42:07.045576"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................."], ["updated_at", "2016-05-08 17:42:07.048283"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................."], ["updated_at", "2016-05-08 17:42:07.051281"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................"], ["updated_at", "2016-05-08 17:42:07.054630"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................."], ["updated_at", "2016-05-08 17:42:07.057271"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................."], ["updated_at", "2016-05-08 17:42:07.060043"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................."], ["updated_at", "2016-05-08 17:42:07.062625"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................."], ["updated_at", "2016-05-08 17:42:07.065968"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................."], ["updated_at", "2016-05-08 17:42:07.068707"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................"], ["updated_at", "2016-05-08 17:42:07.071428"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................."], ["updated_at", "2016-05-08 17:42:07.074052"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................"], ["updated_at", "2016-05-08 17:42:07.076629"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................."], ["updated_at", "2016-05-08 17:42:07.079857"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................."], ["updated_at", "2016-05-08 17:42:07.082784"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................."], ["updated_at", "2016-05-08 17:42:07.085430"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................"], ["updated_at", "2016-05-08 17:42:07.088216"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................."], ["updated_at", "2016-05-08 17:42:07.090685"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................."], ["updated_at", "2016-05-08 17:42:07.093074"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................."], ["updated_at", "2016-05-08 17:42:07.095549"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................"], ["updated_at", "2016-05-08 17:42:07.098275"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................."], ["updated_at", "2016-05-08 17:42:07.101184"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................."], ["updated_at", "2016-05-08 17:42:07.103874"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................."], ["updated_at", "2016-05-08 17:42:07.106318"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................."], ["updated_at", "2016-05-08 17:42:07.109345"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................................."], ["updated_at", "2016-05-08 17:42:07.111884"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................................"], ["updated_at", "2016-05-08 17:42:07.114245"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................................."], ["updated_at", "2016-05-08 17:42:07.116834"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................................"], ["updated_at", "2016-05-08 17:42:07.119538"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................................."], ["updated_at", "2016-05-08 17:42:07.122134"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................................."], ["updated_at", "2016-05-08 17:42:07.124684"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................................."], ["updated_at", "2016-05-08 17:42:07.127276"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................................"], ["updated_at", "2016-05-08 17:42:07.129423"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................................."], ["updated_at", "2016-05-08 17:42:07.132327"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................................."], ["updated_at", "2016-05-08 17:42:07.135356"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................................."], ["updated_at", "2016-05-08 17:42:07.137401"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................................"], ["updated_at", "2016-05-08 17:42:07.139923"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................................."], ["updated_at", "2016-05-08 17:42:07.142361"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................................."], ["updated_at", "2016-05-08 17:42:07.144852"], ["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................................."], ["updated_at", "2016-05-08 17:42:07.146846"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:42:07.150123"], ["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 282ms (Views: 15.1ms | ActiveRecord: 80.4ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:46:05 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:46:08 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:47:41 -0500
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (78.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (152.2ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:47:54 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:47:57 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:51:13 -0500
+
+ArgumentError ('/:boards' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.7ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (118.7ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:51:53 -0500
+
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (123.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:52:02 -0500
+
+ArgumentError (':boards' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (133.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:52:17 -0500
+
+ArgumentError (':boards_controller' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (118.8ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:53:41 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:53:43 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:53:49 -0500
+
+SyntaxError (/Users/Lisa/Phase-2-Work/Week-1/labyrinth/config/routes.rb:7: syntax error, unexpected ',', expecting keyword_end
+  :root, :controller => 'boards'
+        ^):
+  config/routes.rb:7: syntax error, unexpected ',', expecting keyword_end
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (58.7ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.9ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:55:20 -0500
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'boards'` to `controller: 'boards'`. (called from block in <top (required)> at /Users/Lisa/Phase-2-Work/Week-1/labyrinth/config/routes.rb:7)
+
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  config/routes.rb:7:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (120.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:55:29 -0500
+
+SyntaxError (/Users/Lisa/Phase-2-Work/Week-1/labyrinth/config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+  :root 'boards'
+         ^):
+  config/routes.rb:7: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.6ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:56:16 -0500
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'boards'` to `controller: 'boards'`. (called from block in <top (required)> at /Users/Lisa/Phase-2-Work/Week-1/labyrinth/config/routes.rb:4)
+
+ArgumentError (Missing :action key on routes definition, please check your routes.):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.2ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (135.9ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:56:39 -0500
+DEPRECATION WARNING: Defining a route where `to` is a symbol is deprecated. Please change `to: :boards` to `action: :boards`. (called from block in <top (required)> at /Users/Lisa/Phase-2-Work/Week-1/labyrinth/config/routes.rb:4)
+
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.0ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.4ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.8ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:57:08 -0500
+
+AbstractController::ActionNotFound (The action 'main' could not be found for BoardsController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.8ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (55.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Lisa/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (132.6ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:57:22 -0500
+Processing by BoardsController#index as HTML
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "boards" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-08 17:57:22.854361"], ["updated_at", "2016-05-08 17:57:22.854361"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".."], ["updated_at", "2016-05-08 17:57:22.856810"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..."], ["updated_at", "2016-05-08 17:57:22.859642"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...."], ["updated_at", "2016-05-08 17:57:22.861583"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....."], ["updated_at", "2016-05-08 17:57:22.863488"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......"], ["updated_at", "2016-05-08 17:57:22.865384"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......."], ["updated_at", "2016-05-08 17:57:22.867480"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........"], ["updated_at", "2016-05-08 17:57:22.869647"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........."], ["updated_at", "2016-05-08 17:57:22.872216"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........."], ["updated_at", "2016-05-08 17:57:22.874496"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........."], ["updated_at", "2016-05-08 17:57:22.876558"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............"], ["updated_at", "2016-05-08 17:57:22.878623"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............."], ["updated_at", "2016-05-08 17:57:22.880652"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............."], ["updated_at", "2016-05-08 17:57:22.883128"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............."], ["updated_at", "2016-05-08 17:57:22.885211"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................"], ["updated_at", "2016-05-08 17:57:22.887319"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................."], ["updated_at", "2016-05-08 17:57:22.889337"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................."], ["updated_at", "2016-05-08 17:57:22.891278"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................."], ["updated_at", "2016-05-08 17:57:22.893224"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................."], ["updated_at", "2016-05-08 17:57:22.895264"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................."], ["updated_at", "2016-05-08 17:57:22.897260"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................"], ["updated_at", "2016-05-08 17:57:22.899351"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................."], ["updated_at", "2016-05-08 17:57:22.901263"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................"], ["updated_at", "2016-05-08 17:57:22.903300"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................."], ["updated_at", "2016-05-08 17:57:22.905160"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................."], ["updated_at", "2016-05-08 17:57:22.907195"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................."], ["updated_at", "2016-05-08 17:57:22.909171"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................"], ["updated_at", "2016-05-08 17:57:22.911264"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................."], ["updated_at", "2016-05-08 17:57:22.913220"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................."], ["updated_at", "2016-05-08 17:57:22.915275"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................."], ["updated_at", "2016-05-08 17:57:22.917805"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................"], ["updated_at", "2016-05-08 17:57:22.919787"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................."], ["updated_at", "2016-05-08 17:57:22.921777"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................."], ["updated_at", "2016-05-08 17:57:22.923709"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................."], ["updated_at", "2016-05-08 17:57:22.925558"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................."], ["updated_at", "2016-05-08 17:57:22.927538"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................."], ["updated_at", "2016-05-08 17:57:22.929467"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................"], ["updated_at", "2016-05-08 17:57:22.931528"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................."], ["updated_at", "2016-05-08 17:57:22.933930"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................"], ["updated_at", "2016-05-08 17:57:22.936003"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................."], ["updated_at", "2016-05-08 17:57:22.938044"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................."], ["updated_at", "2016-05-08 17:57:22.940102"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................."], ["updated_at", "2016-05-08 17:57:22.942044"], ["id", 3]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................"], ["updated_at", "2016-05-08 17:57:22.944082"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................."], ["updated_at", "2016-05-08 17:57:22.946005"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................."], ["updated_at", "2016-05-08 17:57:22.947943"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................."], ["updated_at", "2016-05-08 17:57:22.950128"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................"], ["updated_at", "2016-05-08 17:57:22.952225"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................."], ["updated_at", "2016-05-08 17:57:22.954203"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................."], ["updated_at", "2016-05-08 17:57:22.956179"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................."], ["updated_at", "2016-05-08 17:57:22.958225"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................."], ["updated_at", "2016-05-08 17:57:22.960180"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................."], ["updated_at", "2016-05-08 17:57:22.962203"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................"], ["updated_at", "2016-05-08 17:57:22.964039"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................."], ["updated_at", "2016-05-08 17:57:22.966311"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................"], ["updated_at", "2016-05-08 17:57:22.968462"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................."], ["updated_at", "2016-05-08 17:57:22.970433"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................."], ["updated_at", "2016-05-08 17:57:22.972388"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................."], ["updated_at", "2016-05-08 17:57:22.974329"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................"], ["updated_at", "2016-05-08 17:57:22.976228"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................."], ["updated_at", "2016-05-08 17:57:22.978360"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................."], ["updated_at", "2016-05-08 17:57:22.980313"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................."], ["updated_at", "2016-05-08 17:57:22.982346"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................"], ["updated_at", "2016-05-08 17:57:22.984308"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................."], ["updated_at", "2016-05-08 17:57:22.986188"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................."], ["updated_at", "2016-05-08 17:57:22.988093"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................."], ["updated_at", "2016-05-08 17:57:22.989980"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................."], ["updated_at", "2016-05-08 17:57:22.991796"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................."], ["updated_at", "2016-05-08 17:57:22.993717"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................"], ["updated_at", "2016-05-08 17:57:22.995656"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................."], ["updated_at", "2016-05-08 17:57:22.997556"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................"], ["updated_at", "2016-05-08 17:57:22.999759"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................."], ["updated_at", "2016-05-08 17:57:23.001754"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................."], ["updated_at", "2016-05-08 17:57:23.003553"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................."], ["updated_at", "2016-05-08 17:57:23.005465"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................"], ["updated_at", "2016-05-08 17:57:23.007347"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................."], ["updated_at", "2016-05-08 17:57:23.009334"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................."], ["updated_at", "2016-05-08 17:57:23.011259"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................."], ["updated_at", "2016-05-08 17:57:23.013205"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................"], ["updated_at", "2016-05-08 17:57:23.015296"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................."], ["updated_at", "2016-05-08 17:57:23.017342"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................."], ["updated_at", "2016-05-08 17:57:23.019269"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................."], ["updated_at", "2016-05-08 17:57:23.021207"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................."], ["updated_at", "2016-05-08 17:57:23.023168"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................................."], ["updated_at", "2016-05-08 17:57:23.025070"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................................"], ["updated_at", "2016-05-08 17:57:23.026969"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................................."], ["updated_at", "2016-05-08 17:57:23.028887"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................................"], ["updated_at", "2016-05-08 17:57:23.030775"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................................."], ["updated_at", "2016-05-08 17:57:23.032718"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................................."], ["updated_at", "2016-05-08 17:57:23.034872"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................................."], ["updated_at", "2016-05-08 17:57:23.036811"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................................"], ["updated_at", "2016-05-08 17:57:23.038736"], ["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................................."], ["updated_at", "2016-05-08 17:57:23.040876"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................................."], ["updated_at", "2016-05-08 17:57:23.042967"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................................."], ["updated_at", "2016-05-08 17:57:23.045070"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................................"], ["updated_at", "2016-05-08 17:57:23.047054"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................................."], ["updated_at", "2016-05-08 17:57:23.049081"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................................."], ["updated_at", "2016-05-08 17:57:23.050994"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................................."], ["updated_at", "2016-05-08 17:57:23.052875"], ["id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:57:23.054656"], ["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 233ms (Views: 22.8ms | ActiveRecord: 73.9ms)
+
+
+Started GET "/assets/application.self-779315d5c84c709f0058e5ad2376c1731e6f2e47b85ed3a01357e88e6449261e.css?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/board.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/application.self-c9a23876a72cf26b5023e3d550a5777be7b07ad0fe6f91eee8dbc7cb9b9b3358.js?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started GET "/assets/board.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-08 12:57:23 -0500
+
+
+Started PUT "/boards/3" for ::1 at 2016-05-08 12:57:30 -0500
+Processing by BoardsController#update as */*
+  Parameters: {"number"=>"4", "type"=>"wall", "id"=>"3"}
+  [1m[35mBoard Load (1.2ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "....#..............................................................................................."], ["updated_at", "2016-05-08 17:57:30.329109"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.5ms)
+  Rendered boards/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 43ms (Views: 34.0ms | ActiveRecord: 2.0ms)
+
+
+Started PUT "/boards/3" for ::1 at 2016-05-08 12:57:31 -0500
+Processing by BoardsController#update as */*
+  Parameters: {"number"=>"4", "type"=>"maze-walker", "id"=>"3"}
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "....o..............................................................................................."], ["updated_at", "2016-05-08 17:57:31.587522"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 40ms (Views: 36.2ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/boards/3" for ::1 at 2016-05-08 12:57:32 -0500
+Processing by BoardsController#update as */*
+  Parameters: {"number"=>"4", "type"=>"finish-line", "id"=>"3"}
+  [1m[35mBoard Load (0.7ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "....*..............................................................................................."], ["updated_at", "2016-05-08 17:57:32.186910"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 38ms (Views: 32.1ms | ActiveRecord: 1.7ms)
+
+
+Started PUT "/boards/3" for ::1 at 2016-05-08 12:57:32 -0500
+Processing by BoardsController#update as */*
+  Parameters: {"number"=>"4", "type"=>"path", "id"=>"3"}
+  [1m[35mBoard Load (0.3ms)[0m  SELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:57:32.754143"], ["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/boards" for ::1 at 2016-05-08 12:59:22 -0500
+Processing by BoardsController#index as HTML
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "boards" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-08 17:59:22.081664"], ["updated_at", "2016-05-08 17:59:22.081664"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".."], ["updated_at", "2016-05-08 17:59:22.084323"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..."], ["updated_at", "2016-05-08 17:59:22.086398"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...."], ["updated_at", "2016-05-08 17:59:22.088401"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....."], ["updated_at", "2016-05-08 17:59:22.090348"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......"], ["updated_at", "2016-05-08 17:59:22.092294"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......."], ["updated_at", "2016-05-08 17:59:22.094207"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........"], ["updated_at", "2016-05-08 17:59:22.096192"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........."], ["updated_at", "2016-05-08 17:59:22.098069"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........."], ["updated_at", "2016-05-08 17:59:22.100350"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........."], ["updated_at", "2016-05-08 17:59:22.102504"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............"], ["updated_at", "2016-05-08 17:59:22.104454"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............."], ["updated_at", "2016-05-08 17:59:22.106413"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............."], ["updated_at", "2016-05-08 17:59:22.108395"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............."], ["updated_at", "2016-05-08 17:59:22.110482"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................"], ["updated_at", "2016-05-08 17:59:22.112461"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................."], ["updated_at", "2016-05-08 17:59:22.114352"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................."], ["updated_at", "2016-05-08 17:59:22.116806"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................."], ["updated_at", "2016-05-08 17:59:22.118895"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................."], ["updated_at", "2016-05-08 17:59:22.120897"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................."], ["updated_at", "2016-05-08 17:59:22.122804"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................"], ["updated_at", "2016-05-08 17:59:22.124754"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................."], ["updated_at", "2016-05-08 17:59:22.126782"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................"], ["updated_at", "2016-05-08 17:59:22.128622"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................."], ["updated_at", "2016-05-08 17:59:22.130514"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................."], ["updated_at", "2016-05-08 17:59:22.132659"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................."], ["updated_at", "2016-05-08 17:59:22.134923"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................"], ["updated_at", "2016-05-08 17:59:22.136857"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................."], ["updated_at", "2016-05-08 17:59:22.138935"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................."], ["updated_at", "2016-05-08 17:59:22.140964"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................."], ["updated_at", "2016-05-08 17:59:22.142930"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................"], ["updated_at", "2016-05-08 17:59:22.144844"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................."], ["updated_at", "2016-05-08 17:59:22.146795"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................."], ["updated_at", "2016-05-08 17:59:22.148772"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................."], ["updated_at", "2016-05-08 17:59:22.150846"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................."], ["updated_at", "2016-05-08 17:59:22.152790"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................."], ["updated_at", "2016-05-08 17:59:22.154642"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................"], ["updated_at", "2016-05-08 17:59:22.156541"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................."], ["updated_at", "2016-05-08 17:59:22.158474"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................"], ["updated_at", "2016-05-08 17:59:22.160383"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................."], ["updated_at", "2016-05-08 17:59:22.162353"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................."], ["updated_at", "2016-05-08 17:59:22.164294"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................."], ["updated_at", "2016-05-08 17:59:22.166331"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................"], ["updated_at", "2016-05-08 17:59:22.168610"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................."], ["updated_at", "2016-05-08 17:59:22.170626"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................."], ["updated_at", "2016-05-08 17:59:22.172567"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................."], ["updated_at", "2016-05-08 17:59:22.174497"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................"], ["updated_at", "2016-05-08 17:59:22.176443"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................."], ["updated_at", "2016-05-08 17:59:22.178305"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................."], ["updated_at", "2016-05-08 17:59:22.180123"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................."], ["updated_at", "2016-05-08 17:59:22.182145"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................."], ["updated_at", "2016-05-08 17:59:22.184243"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................."], ["updated_at", "2016-05-08 17:59:22.186138"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................"], ["updated_at", "2016-05-08 17:59:22.188010"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................."], ["updated_at", "2016-05-08 17:59:22.189909"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................"], ["updated_at", "2016-05-08 17:59:22.191768"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................."], ["updated_at", "2016-05-08 17:59:22.193723"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................."], ["updated_at", "2016-05-08 17:59:22.195703"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................."], ["updated_at", "2016-05-08 17:59:22.197609"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................"], ["updated_at", "2016-05-08 17:59:22.199679"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................."], ["updated_at", "2016-05-08 17:59:22.201996"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................."], ["updated_at", "2016-05-08 17:59:22.204036"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................."], ["updated_at", "2016-05-08 17:59:22.205922"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................"], ["updated_at", "2016-05-08 17:59:22.207764"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................."], ["updated_at", "2016-05-08 17:59:22.209818"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................."], ["updated_at", "2016-05-08 17:59:22.211691"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................."], ["updated_at", "2016-05-08 17:59:22.213598"], ["id", 4]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................."], ["updated_at", "2016-05-08 17:59:22.215935"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................."], ["updated_at", "2016-05-08 17:59:22.217929"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................"], ["updated_at", "2016-05-08 17:59:22.219831"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................."], ["updated_at", "2016-05-08 17:59:22.221760"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................"], ["updated_at", "2016-05-08 17:59:22.223796"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................."], ["updated_at", "2016-05-08 17:59:22.225719"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................."], ["updated_at", "2016-05-08 17:59:22.227796"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................."], ["updated_at", "2016-05-08 17:59:22.229751"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................"], ["updated_at", "2016-05-08 17:59:22.231748"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................."], ["updated_at", "2016-05-08 17:59:22.233977"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................."], ["updated_at", "2016-05-08 17:59:22.236169"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................."], ["updated_at", "2016-05-08 17:59:22.238147"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................"], ["updated_at", "2016-05-08 17:59:22.240140"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................."], ["updated_at", "2016-05-08 17:59:22.242130"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................."], ["updated_at", "2016-05-08 17:59:22.244133"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................."], ["updated_at", "2016-05-08 17:59:22.246174"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................."], ["updated_at", "2016-05-08 17:59:22.248351"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................................."], ["updated_at", "2016-05-08 17:59:22.250618"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................................"], ["updated_at", "2016-05-08 17:59:22.252798"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................................."], ["updated_at", "2016-05-08 17:59:22.254899"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................................"], ["updated_at", "2016-05-08 17:59:22.256920"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................................."], ["updated_at", "2016-05-08 17:59:22.258971"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................................."], ["updated_at", "2016-05-08 17:59:22.260968"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................................."], ["updated_at", "2016-05-08 17:59:22.263011"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................................"], ["updated_at", "2016-05-08 17:59:22.265067"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................................."], ["updated_at", "2016-05-08 17:59:22.267501"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................................."], ["updated_at", "2016-05-08 17:59:22.269535"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................................."], ["updated_at", "2016-05-08 17:59:22.271608"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................................"], ["updated_at", "2016-05-08 17:59:22.273613"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................................."], ["updated_at", "2016-05-08 17:59:22.275641"], ["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................................."], ["updated_at", "2016-05-08 17:59:22.277671"], ["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................................."], ["updated_at", "2016-05-08 17:59:22.279695"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:59:22.281855"], ["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 229ms (Views: 20.3ms | ActiveRecord: 74.5ms)
+
+
+Started GET "/assets/board.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/application.self-779315d5c84c709f0058e5ad2376c1731e6f2e47b85ed3a01357e88e6449261e.css?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/board.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/assets/application.self-c9a23876a72cf26b5023e3d550a5777be7b07ad0fe6f91eee8dbc7cb9b9b3358.js?body=1" for ::1 at 2016-05-08 12:59:22 -0500
+
+
+Started GET "/" for ::1 at 2016-05-08 12:59:44 -0500
+
+
+Started GET "/boards" for ::1 at 2016-05-08 12:59:44 -0500
+Processing by BoardsController#index as HTML
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "boards" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2016-05-08 17:59:44.557075"], ["updated_at", "2016-05-08 17:59:44.557075"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".."], ["updated_at", "2016-05-08 17:59:44.559218"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..."], ["updated_at", "2016-05-08 17:59:44.561336"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...."], ["updated_at", "2016-05-08 17:59:44.563236"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....."], ["updated_at", "2016-05-08 17:59:44.565214"], ["id", 5]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......"], ["updated_at", "2016-05-08 17:59:44.567541"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......."], ["updated_at", "2016-05-08 17:59:44.569440"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........"], ["updated_at", "2016-05-08 17:59:44.571423"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........."], ["updated_at", "2016-05-08 17:59:44.573379"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........."], ["updated_at", "2016-05-08 17:59:44.575231"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........."], ["updated_at", "2016-05-08 17:59:44.577278"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............"], ["updated_at", "2016-05-08 17:59:44.579171"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............."], ["updated_at", "2016-05-08 17:59:44.581113"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............."], ["updated_at", "2016-05-08 17:59:44.583534"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............."], ["updated_at", "2016-05-08 17:59:44.585531"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................"], ["updated_at", "2016-05-08 17:59:44.587467"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................."], ["updated_at", "2016-05-08 17:59:44.589351"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................."], ["updated_at", "2016-05-08 17:59:44.591218"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................."], ["updated_at", "2016-05-08 17:59:44.593055"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................."], ["updated_at", "2016-05-08 17:59:44.594921"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................."], ["updated_at", "2016-05-08 17:59:44.596754"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................"], ["updated_at", "2016-05-08 17:59:44.598618"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................."], ["updated_at", "2016-05-08 17:59:44.600565"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................"], ["updated_at", "2016-05-08 17:59:44.602441"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................."], ["updated_at", "2016-05-08 17:59:44.604272"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................."], ["updated_at", "2016-05-08 17:59:44.606181"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................."], ["updated_at", "2016-05-08 17:59:44.608047"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................"], ["updated_at", "2016-05-08 17:59:44.609962"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................."], ["updated_at", "2016-05-08 17:59:44.611722"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................."], ["updated_at", "2016-05-08 17:59:44.621313"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................."], ["updated_at", "2016-05-08 17:59:44.623515"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................"], ["updated_at", "2016-05-08 17:59:44.625637"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................."], ["updated_at", "2016-05-08 17:59:44.627857"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................."], ["updated_at", "2016-05-08 17:59:44.629945"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................."], ["updated_at", "2016-05-08 17:59:44.632271"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................."], ["updated_at", "2016-05-08 17:59:44.634414"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................."], ["updated_at", "2016-05-08 17:59:44.636473"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................"], ["updated_at", "2016-05-08 17:59:44.638587"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................."], ["updated_at", "2016-05-08 17:59:44.640526"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................"], ["updated_at", "2016-05-08 17:59:44.642534"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................."], ["updated_at", "2016-05-08 17:59:44.644512"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................."], ["updated_at", "2016-05-08 17:59:44.646377"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................."], ["updated_at", "2016-05-08 17:59:44.648296"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................"], ["updated_at", "2016-05-08 17:59:44.650485"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................."], ["updated_at", "2016-05-08 17:59:44.652497"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................."], ["updated_at", "2016-05-08 17:59:44.654484"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................."], ["updated_at", "2016-05-08 17:59:44.656388"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................"], ["updated_at", "2016-05-08 17:59:44.658377"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................."], ["updated_at", "2016-05-08 17:59:44.660433"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................."], ["updated_at", "2016-05-08 17:59:44.662421"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................."], ["updated_at", "2016-05-08 17:59:44.664406"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................."], ["updated_at", "2016-05-08 17:59:44.666525"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................."], ["updated_at", "2016-05-08 17:59:44.668575"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................"], ["updated_at", "2016-05-08 17:59:44.670547"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................."], ["updated_at", "2016-05-08 17:59:44.672619"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................"], ["updated_at", "2016-05-08 17:59:44.674533"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................."], ["updated_at", "2016-05-08 17:59:44.676403"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................."], ["updated_at", "2016-05-08 17:59:44.678316"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................."], ["updated_at", "2016-05-08 17:59:44.680264"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................"], ["updated_at", "2016-05-08 17:59:44.682142"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................."], ["updated_at", "2016-05-08 17:59:44.684540"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................."], ["updated_at", "2016-05-08 17:59:44.686514"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................."], ["updated_at", "2016-05-08 17:59:44.688495"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................"], ["updated_at", "2016-05-08 17:59:44.690359"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................."], ["updated_at", "2016-05-08 17:59:44.692441"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................."], ["updated_at", "2016-05-08 17:59:44.694524"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................."], ["updated_at", "2016-05-08 17:59:44.696483"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................."], ["updated_at", "2016-05-08 17:59:44.698585"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................."], ["updated_at", "2016-05-08 17:59:44.700834"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................"], ["updated_at", "2016-05-08 17:59:44.702894"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................."], ["updated_at", "2016-05-08 17:59:44.704864"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................"], ["updated_at", "2016-05-08 17:59:44.707223"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................."], ["updated_at", "2016-05-08 17:59:44.709382"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................."], ["updated_at", "2016-05-08 17:59:44.711430"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................."], ["updated_at", "2016-05-08 17:59:44.713635"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................"], ["updated_at", "2016-05-08 17:59:44.715643"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................."], ["updated_at", "2016-05-08 17:59:44.718086"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................."], ["updated_at", "2016-05-08 17:59:44.720438"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................."], ["updated_at", "2016-05-08 17:59:44.722589"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................"], ["updated_at", "2016-05-08 17:59:44.724919"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................."], ["updated_at", "2016-05-08 17:59:44.726917"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................."], ["updated_at", "2016-05-08 17:59:44.728915"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................."], ["updated_at", "2016-05-08 17:59:44.731157"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................."], ["updated_at", "2016-05-08 17:59:44.733446"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "....................................................................................."], ["updated_at", "2016-05-08 17:59:44.736191"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "......................................................................................"], ["updated_at", "2016-05-08 17:59:44.738378"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "......................................................................................."], ["updated_at", "2016-05-08 17:59:44.740375"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "........................................................................................"], ["updated_at", "2016-05-08 17:59:44.742321"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "........................................................................................."], ["updated_at", "2016-05-08 17:59:44.744361"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".........................................................................................."], ["updated_at", "2016-05-08 17:59:44.746461"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..........................................................................................."], ["updated_at", "2016-05-08 17:59:44.748566"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "............................................................................................"], ["updated_at", "2016-05-08 17:59:44.750710"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "............................................................................................."], ["updated_at", "2016-05-08 17:59:44.752718"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".............................................................................................."], ["updated_at", "2016-05-08 17:59:44.754712"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..............................................................................................."], ["updated_at", "2016-05-08 17:59:44.756685"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "................................................................................................"], ["updated_at", "2016-05-08 17:59:44.758595"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "................................................................................................."], ["updated_at", "2016-05-08 17:59:44.760610"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", ".................................................................................................."], ["updated_at", "2016-05-08 17:59:44.762545"], ["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3[0m  [["maze", "..................................................................................................."], ["updated_at", "2016-05-08 17:59:44.764670"], ["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "boards" SET "maze" = $1, "updated_at" = $2 WHERE "boards"."id" = $3  [["maze", "...................................................................................................."], ["updated_at", "2016-05-08 17:59:44.767078"], ["id", 5]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered boards/_board.html.erb (0.1ms)
+  Rendered boards/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 238ms (Views: 20.6ms | ActiveRecord: 77.0ms)

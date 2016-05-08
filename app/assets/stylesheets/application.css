@@ -25,12 +25,9 @@ td {
   background-color: rgb(50, 230, 78)
 }
 
-.path {
-  background-color: rgb(240, 30, 78)
-}
-
 .maze-walker {
-  background-image: url("http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg");
+  /*background-image: url("http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg");*/
+  background-color: black;
 }
 
 .finish-line {

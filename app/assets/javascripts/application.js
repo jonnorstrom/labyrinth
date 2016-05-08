@@ -28,23 +28,23 @@ $(document).ready(function(){
     if ($(this).hasClass('wall')){ // 2, starting point
       $(this).removeClass('wall');
       $(this).addClass('maze-walker');
-      // var thing = 'maze-walker'
+      var thing = 'maze-walker'
     } else if ($(this).hasClass('maze-walker')){ // 3, finish line
       $(this).removeClass('maze-walker');
       $(this).addClass('finish-line');
-      // var thing = 'finish-line'
-    } } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
+      var thing = 'finish-line'
+    } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
       $(this).removeClass('finish-line');
-      // var thing = 'finish-line'
+      var thing = 'path'
     } else { // 1, wall
       $(this).addClass('wall');
-      // var thing = 'wall'
+      var thing = 'wall'
     };
     $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
       datatype: 'json',
-      data: {number: id}
+      data: {number: id, type: thing}
     });
   })
 });

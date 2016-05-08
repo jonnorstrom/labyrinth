@@ -25,23 +25,38 @@ $(document).ready(function(){
     var id = (tens*10) + ones
     var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
 
-    if ($(this).hasClass('wall')){
+    if ($(this).hasClass('wall')){ // 2, starting point
       $(this).removeClass('wall');
-      $(this).addClass('path');
+      $(this).addClass('maze-walker');
+      var thing = 'maze-walker'
+    } else if ($(this).hasClass('maze-walker')){ // 3, finish line
+      $(this).removeClass('maze-walker');
+      $(this).addClass('finish-line');
+      var thing = 'finish-line'
+    } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
+      $(this).removeClass('finish-line');
       var thing = 'path'
-    } else if ($(this).hasClass('path')){
-      $(this).removeClass('path');
-      var thing = 'nothing'
-    } else {
+    } else { // 1, wall
       $(this).addClass('wall');
       var thing = 'wall'
     };
-    $.ajax({
+    var request = $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
       datatype: 'json',
-      data: {number: id, display: thing}
+      data: {number: id, type: thing}
     });
-    // var board_id = $(this).parent().parent().parent().attr('id').replace(/\D+/, '')
-  })
+  });
+
+  $('form.run').on('submit', function(event){
+    event.preventDefault();
+    var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
+    var request = $.ajax({
+      url: `/boards/${board_id}`
+    });
+
+    request.done(function(response){
+      console.log(response);
+    })
+  });
 });

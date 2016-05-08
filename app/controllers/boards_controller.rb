@@ -12,11 +12,11 @@ class BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
     type = case params[:type]
-          when 'path' then '.'
-          when 'maze-walker' then 'o'
-          when 'finish-line' then '*'
-          when 'wall' then '#'
-          end
+           when 'path' then '.'
+           when 'maze-walker' then 'o'
+           when 'finish-line' then '*'
+           when 'wall' then '#'
+           end
     @board.maze[params[:number].to_i] = type
     @board.save
     render 'index'
@@ -24,7 +24,15 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @board.make_maze(@board.maze)
+    @board.run
+    @board.moves.shift
+    @all_moves = @board.moves
 
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @all_moves }
+    # end
     render 'index'
   end
 end

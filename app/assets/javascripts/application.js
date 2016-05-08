@@ -40,11 +40,23 @@ $(document).ready(function(){
       $(this).addClass('wall');
       var thing = 'wall'
     };
-    $.ajax({
+    var request = $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
       datatype: 'json',
       data: {number: id, type: thing}
     });
-  })
+  });
+
+  $('form.run').on('submit', function(event){
+    event.preventDefault();
+    var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
+    var request = $.ajax({
+      url: `/boards/${board_id}`
+    });
+
+    request.done(function(response){
+      console.log(response);
+    })
+  });
 });

@@ -20,21 +20,28 @@ $(document).ready(function(){
   //   function(){$(this).css({"background-color":"red"});}
   // });
   $('.cell').on('click', function(){
-    if ($(this).hasClass('wall')){
-      $(this).removeClass('wall');
-      $(this).addClass('path');
-    } else if ($(this).hasClass('path')){
-      $(this).removeClass('path');
-    } else {
-    $(this).addClass('wall');
-    };
     var tens = ($(this).parent().index())
     var ones = ($(this).index())
     var id = (tens*10) + ones
+    var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
+
+    if ($(this).hasClass('wall')){
+      $(this).removeClass('wall');
+      $(this).addClass('path');
+      var thing = 'path'
+    } else if ($(this).hasClass('path')){
+      $(this).removeClass('path');
+      var thing = 'nothing'
+    } else {
+      $(this).addClass('wall');
+      var thing = 'wall'
+    };
     $.ajax({
-      url: '/lisa'
-      method: 'post'
-      data: {number: id}
-    })
+      url: `/boards/${board_id}`,
+      method: 'put',
+      datatype: 'json',
+      data: {number: id, display: thing}
+    });
+    // var board_id = $(this).parent().parent().parent().attr('id').replace(/\D+/, '')
   })
 });

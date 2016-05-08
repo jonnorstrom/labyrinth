@@ -15,15 +15,29 @@
  */
 
 td {
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
   border: 1px black solid;
 }
 
-td.wall {
+.wall {
+  background-image: url("http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801");
   background-color: rgb(50, 230, 78)
 }
 
-td.path {
+.path {
   background-color: rgb(240, 30, 78)
+}
+
+.maze-walker {
+  background-image: url("http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg");
+}
+
+.finish-line {
+  background-image: url("http://thumb1.shutterstock.com/display_pic_with_logo/608548/290614490/stock-vector-birthday-cake-pixel-art-vector-icon-illustration-290614490.jpg");
+}
+
+.key {
+  height: 40px;
+  width: 40px;
 }

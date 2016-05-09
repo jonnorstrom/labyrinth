@@ -23,24 +23,37 @@ function sleep(milliseconds) {
   }
 }
 
-function movePlayer(direction) {
-  console.log(direction);
-  var $current = $('.whole-board').find('td.maze-walker');
-  console.log($current.get(0));
-  var $parent = $current.parent();
-  var id = ($current.index());
-  console.log(id);
-  if (direction === "left") {
-      $current.prev().addClass('maze-walker');
-  } else if (direction === "right") {
-      $current.next().addClass('maze-walker');
-  } else if (direction === "up") {
-      $parent.prev().find("td:eq("+id+")").addClass('maze-walker');
-  } else {
-      $parent.next().find("td:eq("+id+")").addClass('maze-walker');
-  }
+function movePlayer(y, x) {
+  var $current = $('.whole-board').find('td.maze-walker')
+  // console.log($current)
   $current.removeClass('maze-walker');
+  var id = ((y*10) + x)
+  var $cell = $('.whole-board').find("td:eq("+id+")").addClass('maze-walker');
+  // console.log($current)
+  // console.log(rowIndex)
+  // console.log(whichRow)
+  // console.log($cell)
 }
+
+// function movePlayer(direction) {
+//   console.log(direction);
+//   console.log($current.get(0));
+//   // find where he is, remove the class - make it a path
+//   // take the next object in the array, get the coords and translate that into the table, change target cell to have the little man.
+//   var $parent = $current.parent();
+//   var id = ($current.index());
+//   console.log(id);
+//   if (direction === "left") {
+//       $current.prev().addClass('maze-walker');
+//   } else if (direction === "right") {
+//       $current.next().addClass('maze-walker');
+//   } else if (direction === "up") {
+//       $parent.prev().find("td:eq("+id+")").addClass('maze-walker');
+//   } else {
+//       $parent.next().find("td:eq("+id+")").addClass('maze-walker');
+//   }
+//   $current.removeClass('maze-walker');
+// }
 
 $(document).ready(function(){
   $('.cell').on('click', function(){
@@ -80,7 +93,7 @@ $(document).ready(function(){
       url: `/boards/${board_id}`
     });
 
-    var allMoves = request.done(function(allMoves){
+    request.done(function(allMoves){
       // animate, one step at a time by iterating through response['moves'] array.
 
       // trying to force the animation to happen one instance at a time, still didn't work
@@ -93,10 +106,10 @@ $(document).ready(function(){
 
 
       // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
+      allMoves.moves.pop()
       for (var i = 0; i < allMoves.moves.length; i++) {
-        movePlayer(allMoves.moves[i]);
+        movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
         sleep(400);
-        // setTimeout(movePlayer(allMoves.moves[move]), 2000);
       }
     });
     // random testing, ignore next 2 lines

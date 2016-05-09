@@ -14,11 +14,11 @@ class Board < ActiveRecord::Base
     @visited_spots = []
     $moves_counter = 0
     $recursion_counter = 0
-    @moves = ["test"]
     @width = @maze_array[0].length - 1
     @height = @maze_array.length - 1
 
     @starting_point = find_start(0)
+    @moves = [@starting_point]
     @current_location = @starting_point
     @finishing_point = find_finish(0)
     possible_moves = check_neighbors(find_neighbors)
@@ -139,13 +139,10 @@ class Board < ActiveRecord::Base
                             x: possible_moves[counter][:x]
                           }
       @maze_array[@current_location[:y]][@current_location[:x]] = 'o' if !finished?
-      # reset_screen
-      # get board - display the board
-      # puts pretty_board(@maze_array)
-      # sleep(0.08)
+
       @visited_spots << @current_location
       last_move = possible_moves[counter][:direction]
-      @moves << last_move
+      @moves << @current_location
       possibilities = check_neighbors(find_neighbors)
       possibilities.each_with_index do |possibility, index|
         if possibility[:direction] == opposite_direction(last_move)
@@ -160,26 +157,4 @@ class Board < ActiveRecord::Base
     $recursion_counter += 1
   end
 
-  # def reset_screen
-  #   clear_screen
-  #   move_to_home
-  # end
-  #
-  # def clear_screen
-  #   print "\e[2J"
-  # end
-  #
-  # def move_to_home
-  #   print "\e[H"
-  # end
-  #
-  # def pretty_board(maze_array)
-  #   string = ""
-  #   maze_array.each do |row|
-  #     string << "#{row.join('')}\n"
-  #   end
-  #   string << "Moves: #{$moves_counter}\n"
-  #   string << "Recursions: #{$recursion_counter}"
-  #   string
-  # end
 end

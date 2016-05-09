@@ -11,9 +11,11 @@ class Board < ActiveRecord::Base
   end
 
   def run
-    @visited_spots = []
+    ## do these need to be global?
     $moves_counter = 0
     $recursion_counter = 0
+
+    @visited_spots = []
     @width = @maze_array[0].length - 1
     @height = @maze_array.length - 1
 
@@ -53,6 +55,7 @@ class Board < ActiveRecord::Base
     @maze_array[y].each do |spot|
       if spot == "o"
         @current_location = {:y => y, :x => x}
+        ## can I just return @current_location? Don't need to return 'key'?
         key = {:y => y, :x => x}
         return key
       else
@@ -76,29 +79,29 @@ class Board < ActiveRecord::Base
   end
 
   def find_neighbors
+    ## proposed change, 4 unless statements would look nicer than 4 if statements
+    ## unless @current_location
+      ## neighbors << {}
+    ## end
     neighbors = []
     if @current_location[:x] == 0
     else
-      left = { direction: "left", y: @current_location[:y], x: @current_location[:x] -1 }
-      neighbors << left
+      neighbors << { direction: "left", y: @current_location[:y], x: @current_location[:x] -1 }
     end
 
     if @current_location[:x] == @width
     else
-      right = { direction: "right", y: @current_location[:y], x: @current_location[:x] + 1 }
-      neighbors << right
+      neighbors << { direction: "right", y: @current_location[:y], x: @current_location[:x] + 1 }
     end
 
     if @current_location[:y] == 0
     else
-      up = { direction: "up", y: @current_location[:y] - 1, x: @current_location[:x] }
-      neighbors << up
+      neighbors << { direction: "up", y: @current_location[:y] - 1, x: @current_location[:x] }
     end
 
     if @current_location[:y] == @height
     else
-      down = { direction: "down", y: @current_location[:y] + 1, x: @current_location[:x] }
-      neighbors << down
+      neighbors << { direction: "down", y: @current_location[:y] + 1, x: @current_location[:x] }
     end
     neighbors
   end
@@ -130,8 +133,6 @@ class Board < ActiveRecord::Base
     return "YOU DIDN'T DIE TODAY" if finished?
     counter = 0
     while counter < possible_moves.length
-
-
       old_location = @current_location
       @maze_array[@current_location[:y]][@current_location[:x]] = '.'
       @current_location = {
@@ -140,6 +141,7 @@ class Board < ActiveRecord::Base
                           }
       @maze_array[@current_location[:y]][@current_location[:x]] = 'o' if !finished?
 
+      ## are we putting the same @current_location into 2 different arrays?? (visited_spots and @moves) They'd be the same either way I believe. I think one of these arrays and just get dumped?
       @visited_spots << @current_location
       last_move = possible_moves[counter][:direction]
       @moves << @current_location
@@ -156,5 +158,4 @@ class Board < ActiveRecord::Base
     end
     $recursion_counter += 1
   end
-
 end

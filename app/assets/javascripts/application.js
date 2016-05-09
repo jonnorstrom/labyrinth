@@ -24,12 +24,12 @@ function sleep(milliseconds) {
 }
 
 function movePlayer(y, x) {
-  var $current = $('.whole-board').find('td.maze-walker')
+  var $current = $('.whole-board').find('td.maze-walker');
   // console.log($current)
   // $current.removeClass('maze-walker');
   $current.toggleClass('maze-walker');
   // var id counts ALL td's as one big list, from 0-99. Finds the exact one (eg. 65)
-  var id = ((y*10) + x)
+  var id = ((y*10) + x);
   // var $cell takes the id value and finds the correct 'td', and then adds the little man to it.
   var $cell = $('.whole-board').find("td:eq("+id+")").toggleClass('maze-walker');
   // console.log($current)
@@ -53,7 +53,7 @@ $(document).ready(function(){
         $(this).removeClass('maze-walker');
         $(this).addClass('finish-line');
         thing = 'finish-line';
-    } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
+    } else if ($(this).hasClass('finish-line')){ // 4, nothing "path"
         $(this).removeClass('finish-line');
         thing = 'path';
     } else { // 1, wall
@@ -87,9 +87,14 @@ $(document).ready(function(){
       // movePlayer(allMoves.moves[1]["y"], allMoves.moves[1]["x"]);
       // sleep(500);
       // movePlayer(allMoves.moves[2]["y"], allMoves.moves[2]["x"]);
-
+      // allMoves.moves.pop();
+      // var i = 0;
+      // $(document).on('click', function(){
+      //   movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
+      //   i += 1;
+      // });
       // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
-      allMoves.moves.pop() // removes last move so that he stops before the finish line
+      allMoves.moves.pop(); // removes last move so that he stops before the finish line
       for (var i = 0; i < allMoves.moves.length; i++) {
         movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
         sleep(400); // sleep for 400ms

@@ -14,28 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
+function doMoves(allMoves) {
+  if (allMoves.length === 0) { return }
+  var move = allMoves.shift(); // removes last move so that he stops before the finish line
+  movePlayer(move["y"], move["x"]);
+
+  setTimeout(doMoves, 200, allMoves);
 }
+
+// function doMoves(allMoves) {
+//   return function() {
+//     if(allMoves.length === 0) { return }
+//     var move = allMoves.shift(); // removes last move so that he stops before the finish line
+//     movePlayer(move["y"], move["x"]);
+//
+//     setTimeout(doMoves(allMoves), 400);
+//   }
+// }
 
 function movePlayer(y, x) {
   var $current = $('.whole-board').find('td.maze-walker');
-  // console.log($current)
-  // $current.removeClass('maze-walker');
   $current.toggleClass('maze-walker');
-  // var id counts ALL td's as one big list, from 0-99. Finds the exact one (eg. 65)
   var id = ((y*10) + x);
-  // var $cell takes the id value and finds the correct 'td', and then adds the little man to it.
   var $cell = $('.whole-board').find("td:eq("+id+")").toggleClass('maze-walker');
-  // console.log($current)
-  // console.log(rowIndex)
-  // console.log(whichRow)
-  // console.log($cell)
 }
 
 $(document).ready(function(){
@@ -79,7 +80,7 @@ $(document).ready(function(){
     request.done(function(allMoves){
       // animate, one step at a time by iterating through allMoves['moves'] array.
 
-
+      // allMoves.moves.pop()
       // trying to force the animation to happen one instance at a time, still didn't work
       // allMoves.moves.pop();
       // movePlayer(allMoves.moves[0]["y"], allMoves.moves[0]["x"]);
@@ -90,15 +91,12 @@ $(document).ready(function(){
       // allMoves.moves.pop();
       // var i = 0;
       // $(document).on('click', function(){
-      //   movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
+      //   movePlayer(allMoxves.moves[i]["y"], allMoves.moves[i]["x"]);
       //   i += 1;
       // });
       // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
-      allMoves.moves.pop(); // removes last move so that he stops before the finish line
-      for (var i = 0; i < allMoves.moves.length; i++) {
-        movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
-        sleep(400); // sleep for 400ms
-      }
+      doMoves(allMoves.moves)
+      // setTimeout(doMoves(allMoves.moves), 400);
     });
   });
 });

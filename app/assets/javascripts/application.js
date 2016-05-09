@@ -14,32 +14,53 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-  // $('.cell').toggle(
-  //   function(){$(this).css({"background-color":"green"});},
-  //   function(){$(this).css({"background-color":"red"});}
-  // });
-  $('.cell').on('click', function(){
-    var tens = ($(this).parent().index())
-    var ones = ($(this).index())
-    var id = (tens*10) + ones
-    var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
+function movePlayer(y, x) {
+  var $current = $('.whole-board').find('td.maze-walker')
+  // console.log($current)
+  // $current.removeClass('maze-walker');
+  $current.toggleClass('maze-walker');
+  // var id counts ALL td's as one big list, from 0-99. Finds the exact one (eg. 65)
+  var id = ((y*10) + x)
+  // var $cell takes the id value and finds the correct 'td', and then adds the little man to it.
+  var $cell = $('.whole-board').find("td:eq("+id+")").toggleClass('maze-walker');
+  // console.log($current)
+  // console.log(rowIndex)
+  // console.log(whichRow)
+  // console.log($cell)
+}
+
+$(document).ready(function(){
+  $('.cell').on('click', function(){
+    var tens = ($(this).parent().index());
+    var ones = ($(this).index());
+    var id = (tens*10) + ones;
+    var board_id = $('.whole-board').attr('id').replace(/\D+/, '');
+    var thing;
     if ($(this).hasClass('wall')){ // 2, starting point
-      $(this).removeClass('wall');
-      $(this).addClass('maze-walker');
-      var thing = 'maze-walker'
+        $(this).removeClass('wall');
+        $(this).addClass('maze-walker');
+        thing = 'maze-walker';
     } else if ($(this).hasClass('maze-walker')){ // 3, finish line
-      $(this).removeClass('maze-walker');
-      $(this).addClass('finish-line');
-      var thing = 'finish-line'
+        $(this).removeClass('maze-walker');
+        $(this).addClass('finish-line');
+        thing = 'finish-line';
     } else if ($(this).hasClass('finish-line')){ // 3, nothing "path"
-      $(this).removeClass('finish-line');
-      var thing = 'path'
+        $(this).removeClass('finish-line');
+        thing = 'path';
     } else { // 1, wall
-      $(this).addClass('wall');
-      var thing = 'wall'
-    };
+        $(this).addClass('wall');
+        thing = 'wall';
+    }
+
     var request = $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
@@ -50,13 +71,29 @@ $(document).ready(function(){
 
   $('form.run').on('submit', function(event){
     event.preventDefault();
-    var board_id = $('.whole-board').attr('id').replace(/\D+/, '')
+    var board_id = $('.whole-board').attr('id').replace(/\D+/, '');
     var request = $.ajax({
       url: `/boards/${board_id}`
     });
 
-    request.done(function(response){
-      console.log(response);
-    })
+    request.done(function(allMoves){
+      // animate, one step at a time by iterating through allMoves['moves'] array.
+
+
+      // trying to force the animation to happen one instance at a time, still didn't work
+      // allMoves.moves.pop();
+      // movePlayer(allMoves.moves[0]["y"], allMoves.moves[0]["x"]);
+      // sleep(500);
+      // movePlayer(allMoves.moves[1]["y"], allMoves.moves[1]["x"]);
+      // sleep(500);
+      // movePlayer(allMoves.moves[2]["y"], allMoves.moves[2]["x"]);
+
+      // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
+      allMoves.moves.pop() // removes last move so that he stops before the finish line
+      for (var i = 0; i < allMoves.moves.length; i++) {
+        movePlayer(allMoves.moves[i]["y"], allMoves.moves[i]["x"]);
+        sleep(400); // sleep for 400ms
+      }
+    });
   });
 });

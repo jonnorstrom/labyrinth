@@ -28,11 +28,9 @@ class BoardsController < ApplicationController
     @board.run
     @board.moves.shift
     @all_moves = @board.moves
-
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @all_moves }
-    # end
-    render 'index'
+   ## @all_moves is an array of hashes, each hash containing an x,y pair (0,0 is top-left corner. Y axis inverted.)
+    respond_to do |format|
+      format.json { render :json => { moves: @all_moves} }
+    end
   end
 end

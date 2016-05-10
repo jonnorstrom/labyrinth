@@ -13,6 +13,22 @@
  *= require_tree .
  *= require_self
  */
+ .wall {
+   background-image: url("wall.jpg");
+   background-color: rgb(50, 230, 78)
+ }
+ /*"http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801"*/
+
+ .maze-walker {
+   background-image: url("maze-walker-41.jpg");
+   background-color: rgb(228, 116, 116);
+ }
+ /*"http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg"*/
+
+ .finish-line {
+   background-image: url("finish-line-more.jpg");
+   background-color: rgb(86, 86, 236);
+ }
 
 td {
   height: 40px;
@@ -20,26 +36,11 @@ td {
   border: 1px black solid;
 }
 
-.wall {
-  background-image: url("wall.jpg");
-  background-color: rgb(50, 230, 78)
-}
-/*"http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801"*/
-
-.maze-walker {
-  background-image: url("maze-walker-41.jpg");
-  background-color: rgb(228, 116, 116);
-}
-/*"http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg"*/
-
-.finish-line {
-  background-image: url("finish-line-more.jpg");
-  background-color: rgb(86, 86, 236);
-}
 /*http://thumb1.shutterstock.com/display_pic_with_logo/608548/290614490/stock-vector-birthday-cake-pixel-art-vector-icon-illustration-290614490.jpg*/
 
 .key {
   height: 40px;
   width: 40px;
   border: none;
+  padding: 0px;
 }

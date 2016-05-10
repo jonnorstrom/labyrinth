@@ -78,25 +78,7 @@ $(document).ready(function(){
     });
 
     request.done(function(allMoves){
-      // animate, one step at a time by iterating through allMoves['moves'] array.
-
-      // allMoves.moves.pop()
-      // trying to force the animation to happen one instance at a time, still didn't work
-      // allMoves.moves.pop();
-      // movePlayer(allMoves.moves[0]["y"], allMoves.moves[0]["x"]);
-      // sleep(500);
-      // movePlayer(allMoves.moves[1]["y"], allMoves.moves[1]["x"]);
-      // sleep(500);
-      // movePlayer(allMoves.moves[2]["y"], allMoves.moves[2]["x"]);
-      // allMoves.moves.pop();
-      // var i = 0;
-      // $(document).on('click', function(){
-      //   movePlayer(allMoxves.moves[i]["y"], allMoves.moves[i]["x"]);
-      //   i += 1;
-      // });
-      // What I believe should be working. both the movePlayer and sleep methods are defined at the top of the page
       doMoves(allMoves.moves)
-      // setTimeout(doMoves(allMoves.moves), 400);
     });
   });
 });

@@ -1,142 +1,150 @@
-<h2>Build this board by clickin the tiles, they'll change color.</h2>
-<table class="legend">
-  <tr>
-    <td class="wall key"></td>
-    <td class="key">Wall</td>
-  </tr>
-  <tr>
-    <td class="maze-walker key"></td>
-    <td class="key">Starting Point</td>
-  </tr>
-  <tr>
-    <td class="finish-line key"></td>
-    <td class="key">Finish Line</td>
-  </tr>
-</table>
+<div class="header">
+  <h2>LABRYNTH</h2>
+</div>
+<div class="sub-container">
+  <div class="legend">
+    <div class="row" id="first_row">
+      <div class="key">
+        <img src="http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801">
+      </div>
+      <div class="label">Barrier</div>
+    </div>
+    <div class="row">
+      <div class="key">
+        <img src="http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg">
+      </div>
+      <div class="label">Maze-Runner</div>
+    </div>
+    <div class="row">
+      <div class="key">
+        <img src="https://t1.ftcdn.net/jpg/00/86/07/20/500_F_86072024_RxjsztnxOdgfgMKEGQJyUejLGegcD1sV.jpg">
+      </div>
+      <div class="label">Finish Line</div>
+    </div>
+  </div>
+  <table class="whole-board" id="boardId<%=@board.id%>">
+    <tr class="table-row" id="1">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row" id="2">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row" id="3">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row" id="4">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row" id="5">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row" id="6">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+    <tr class="table-row">
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+      <td class="cell"></td>
+    </tr>
+  </table>
 
-<table class="whole-board" id="boardId<%=@board.id%>">
-  <tr class="table-row" id="1">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row" id="2">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row" id="3">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row" id="4">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row" id="5">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row" id="6">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-  <tr class="table-row">
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-    <td class="cell"></td>
-  </tr>
-</table>
+</div>
 
-<form class="run" action="/boards/<%=@board.id%>" method="get">
-  <input type="submit" name="name" value="LETS DO THIS">
-</form>
+<h3 class="run">LET'S DO THIS!</h3>

@@ -18,6 +18,7 @@ function doMoves(allMoves) {
   if (allMoves.length === 0) { return; }
   var move = allMoves.shift(); // removes first move to be executed
   movePlayer(move["y"], move["x"]);
+  console.log(move);
 
   setTimeout(doMoves, 200, allMoves);
 }

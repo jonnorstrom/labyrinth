@@ -5,10 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  
-<%= yield %>
-
+  <div class="main-container">
+    <%= yield %>
+  </div>
+  <p>A project by <a href="https://github.com/jonnorstrom" target="_blank">Jon Norstrom</a> & <a href="https://github.com/ldannewitz">Lisa Dannewitz</a></p>
 </body>
 </html>

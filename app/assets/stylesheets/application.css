@@ -13,34 +13,117 @@
  *= require_tree .
  *= require_self
  */
- .wall {
-   background-image: url("wall.jpg");
-   background-color: rgb(50, 230, 78)
+ body {
+   background-color: rgb(105, 130, 153);
  }
- /*"http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801"*/
+
+ .main-container {
+   width: 800px;
+   margin: auto;
+ }
+
+.sub-container {
+  position: relative;
+}
+
+.header {
+  font-family: 'Press Start 2P';
+  text-align: center;
+  margin-bottom: 0px;
+}
+ .key, img {
+   height: 40px;
+   width: 40px;
+   border: none;
+   padding: 0px;
+ }
+
+/* Table cell background photos, need to figure out the sizing still */
+ .wall {
+    background-image: url("wall.jpg");
+    /*"http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801"*/
+  }
 
  .maze-walker {
-   background-image: url("maze-walker-41.jpg");
+   background-image: url("maze-walker.jpg");
    background-color: rgb(228, 116, 116);
+   /*"http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg"*/
  }
- /*"http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg"*/
 
  .finish-line {
    background-image: url("finish-line-more.jpg");
    background-color: rgb(86, 86, 236);
+   /*https://t1.ftcdn.net/jpg/00/86/07/20/500_F_86072024_RxjsztnxOdgfgMKEGQJyUejLGegcD1sV.jpg*/
  }
 
 td {
+  background-color: white;
   height: 40px;
   width: 40px;
   border: 1px black solid;
 }
 
-/*http://thumb1.shutterstock.com/display_pic_with_logo/608548/290614490/stock-vector-birthday-cake-pixel-art-vector-icon-illustration-290614490.jpg*/
+table.whole-board {
+  margin: auto;
+}
 
-.key {
-  height: 40px;
-  width: 40px;
-  border: none;
-  padding: 0px;
+div.legend {
+  border: 2px black solid;
+  border-radius: 5px;
+  width: 700px;
+  margin: auto;
+  margin-bottom: 5px;
+  /*right: 230px;
+  display: inline-block;*/
+}
+
+.row {
+  margin-top: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.key, .label {
+  display: inline-block;
+}
+
+#first_row {
+  margin-left: 100px;
+}
+
+.label {
+  position: relative;
+  bottom: 4px;
+  width: 140px;
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+}
+
+h3.run {
+  font-family: 'Press Start 2P';
+  text-align: center;
+  font-size: 20px;
+}
+
+h3.run:hover {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+p a {
+  color: rgb(80, 50, 50);
+}
+
+p {
+  text-align: center;
+  font-family: 'Press Start 2P';
+  font-size: 15px;
 }

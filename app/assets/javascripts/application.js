@@ -15,22 +15,13 @@
 //= require turbolinks
 //= require_tree .
 function doMoves(allMoves) {
-  if (allMoves.length === 0) { return }
-  var move = allMoves.shift(); // removes last move so that he stops before the finish line
+  if (allMoves.length === 0) { return; }
+  var move = allMoves.shift(); // removes first move to be executed
   movePlayer(move["y"], move["x"]);
+  console.log(move);
 
   setTimeout(doMoves, 200, allMoves);
 }
-
-// function doMoves(allMoves) {
-//   return function() {
-//     if(allMoves.length === 0) { return }
-//     var move = allMoves.shift(); // removes last move so that he stops before the finish line
-//     movePlayer(move["y"], move["x"]);
-//
-//     setTimeout(doMoves(allMoves), 400);
-//   }
-// }
 
 function movePlayer(y, x) {
   var $current = $('.whole-board').find('td.maze-walker');
@@ -44,33 +35,36 @@ $(document).ready(function(){
     var tens = ($(this).parent().index());
     var ones = ($(this).index());
     var id = (tens*10) + ones;
+    var spotType;
     var board_id = $('.whole-board').attr('id').replace(/\D+/, '');
-    var thing;
+
+    // carosel for designing the board
     if ($(this).hasClass('wall')){ // 2, starting point
         $(this).removeClass('wall');
         $(this).addClass('maze-walker');
-        thing = 'maze-walker';
+        spotType = 'maze-walker';
     } else if ($(this).hasClass('maze-walker')){ // 3, finish line
         $(this).removeClass('maze-walker');
         $(this).addClass('finish-line');
-        thing = 'finish-line';
+        spotType = 'finish-line';
     } else if ($(this).hasClass('finish-line')){ // 4, nothing "path"
         $(this).removeClass('finish-line');
-        thing = 'path';
+        spotType = 'path';
     } else { // 1, wall
         $(this).addClass('wall');
-        thing = 'wall';
+        spotType = 'wall';
     }
 
+    // to update board on backend
     var request = $.ajax({
       url: `/boards/${board_id}`,
       method: 'put',
       datatype: 'json',
-      data: {number: id, type: thing}
+      data: {number: id, type: spotType}
     });
   });
 
-  $('form.run').on('submit', function(event){
+  $('.run').on('click', function(event){
     event.preventDefault();
     var board_id = $('.whole-board').attr('id').replace(/\D+/, '');
     var request = $.ajax({
@@ -78,7 +72,8 @@ $(document).ready(function(){
     });
 
     request.done(function(allMoves){
-      doMoves(allMoves.moves)
+      allMoves.moves.pop(); // removes last move so he stops before finish line
+      doMoves(allMoves.moves);
     });
   });
 });

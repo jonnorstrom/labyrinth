@@ -28,12 +28,14 @@ class Board < ActiveRecord::Base
   end
 
   def space(y, x)
-    if @maze_array[y][x] == 'o'
+    if @maze[y][x] == 'o'
       return "starting"
-    elsif @maze_array[y][x] == '#'
+    elsif @maze[y][x] == '#'
       return "wall"
     elsif visited?(y, x)
       return "visited"
+    elsif @maze[y][x] == '*'
+      return "finished"
     else
       return "open"
     end
@@ -79,31 +81,28 @@ class Board < ActiveRecord::Base
   end
 
   def find_neighbors
-    ## proposed change, 4 unless statements would look nicer than 4 if statements
-    ## unless @current_location
-      ## neighbors << {}
-    ## end
     neighbors = []
-    if @current_location[:x] == 0
+    left = { direction: "left", y: @current_location[:y], x: @current_location[:x] -1 }
+    right = { direction: "right", y: @current_location[:y], x: @current_location[:x] + 1 }
+    up = { direction: "up", y: @current_location[:y] - 1, x: @current_location[:x] }
+    down = { direction: "down", y: (@current_location[:y] + 1), x: @current_location[:x] }
+
+    if space(left[:y], left[:x]) == 'finished'
+      neighbors = [left]
+    elsif space(right[:y], right[:x]) == 'finished'
+      neighbors = [right]
+    elsif space(up[:y], up[:x]) == 'finished'
+      neighbors = [up]
+    elsif space(down[:y], down[:x]) == 'finished'
+      neighbors = [down]
     else
-      neighbors << { direction: "left", y: @current_location[:y], x: @current_location[:x] -1 }
+      neighbors << left unless @current_location[:x] == 0
+      neighbors << right unless @current_location[:x] == @width
+      neighbors << up unless @current_location[:y] == 0
+      neighbors << down unless @current_location[:y] == @height
     end
 
-    if @current_location[:x] == @width
-    else
-      neighbors << { direction: "right", y: @current_location[:y], x: @current_location[:x] + 1 }
-    end
-
-    if @current_location[:y] == 0
-    else
-      neighbors << { direction: "up", y: @current_location[:y] - 1, x: @current_location[:x] }
-    end
-
-    if @current_location[:y] == @height
-    else
-      neighbors << { direction: "down", y: @current_location[:y] + 1, x: @current_location[:x] }
-    end
-    neighbors
+    return neighbors
   end
 
   def check_neighbors(neighbors)
@@ -114,6 +113,8 @@ class Board < ActiveRecord::Base
       if space(y, x) == "wall" || space(y, x) == "visited"
         neighbors.delete_at(counter)
         counter -= 1
+      elsif space(y, x) == "finish"
+        neighbors = neighbors[counter]
       end
       counter += 1
     end
@@ -141,7 +142,6 @@ class Board < ActiveRecord::Base
                           }
       @maze_array[@current_location[:y]][@current_location[:x]] = 'o' if !finished?
 
-      ## are we putting the same @current_location into 2 different arrays?? (visited_spots and @moves) They'd be the same either way I believe. I think one of these arrays and just get dumped?
       @visited_spots << @current_location
       last_move = possible_moves[counter][:direction]
       @moves << @current_location

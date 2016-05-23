@@ -72,6 +72,7 @@ $(document).ready(function(){
     });
 
     request.done(function(allMoves){
+      console.log(allMoves)
       allMoves.moves.pop(); // removes last move so he stops before finish line
       doMoves(allMoves.moves);
     });

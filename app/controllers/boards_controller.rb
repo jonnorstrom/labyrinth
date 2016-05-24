@@ -28,9 +28,6 @@ class BoardsController < ApplicationController
     @board.run
     @board.moves.shift
     @all_moves = @board.moves
-    puts @board.maze
-    puts @all_moves
-   ## @all_moves is an array of hashes, each hash containing an x,y pair (0,0 is top-left corner. Y axis inverted.)
     respond_to do |format|
       format.json { render :json => { moves: @all_moves} }
     end

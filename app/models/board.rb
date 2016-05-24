@@ -20,6 +20,7 @@ class Board < ActiveRecord::Base
     @height = @maze_array.length - 1
 
     @starting_point = find_start(0)
+
     @moves = [@starting_point]
     @current_location = @starting_point
     @finishing_point = find_finish(0)
@@ -28,16 +29,18 @@ class Board < ActiveRecord::Base
   end
 
   def space(y, x)
-    if @maze[y][x] == 'o'
-      return "starting"
-    elsif @maze[y][x] == '#'
-      return "wall"
-    elsif visited?(y, x)
-      return "visited"
-    elsif @maze[y][x] == '*'
-      return "finished"
-    else
-      return "open"
+    unless y < 0 || x < 0
+      if @maze_array[y][x] == 'o'
+        return "starting"
+      elsif @maze_array[y][x] == '#'
+        return "wall"
+      elsif visited?(y, x)
+        return "visited"
+      elsif @maze_array[y][x] == '*'
+        return "finished"
+      else
+        return "open"
+      end
     end
   end
 
@@ -87,6 +90,10 @@ class Board < ActiveRecord::Base
     up = { direction: "up", y: @current_location[:y] - 1, x: @current_location[:x] }
     down = { direction: "down", y: (@current_location[:y] + 1), x: @current_location[:x] }
 
+
+    # (0,0)
+    # have space check to see if negative?
+    # have find_neighbors check to see if negative?
     if space(left[:y], left[:x]) == 'finished'
       neighbors = [left]
     elsif space(right[:y], right[:x]) == 'finished'
@@ -101,7 +108,8 @@ class Board < ActiveRecord::Base
       neighbors << up unless @current_location[:y] == 0
       neighbors << down unless @current_location[:y] == @height
     end
-
+    p "all neighbors"
+    p neighbors
     return neighbors
   end
 
@@ -153,7 +161,7 @@ class Board < ActiveRecord::Base
       end
       $moves_counter += 1
       move_player(possibilities)
-      return "YOU DIDN'T DIE TODAY" if finished?
+      return if finished?
       counter += 1
     end
     $recursion_counter += 1

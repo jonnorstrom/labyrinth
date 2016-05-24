@@ -57,7 +57,7 @@ $(document).ready(function(){
 
     // to update board on backend
     var request = $.ajax({
-      url: `/boards/${board_id}`,
+      url: '/boards/'+board_id,
       method: 'put',
       datatype: 'json',
       data: {number: id, type: spotType}
@@ -68,7 +68,7 @@ $(document).ready(function(){
     event.preventDefault();
     var board_id = $('.whole-board').attr('id').replace(/\D+/, '');
     var request = $.ajax({
-      url: `/boards/${board_id}`
+      url: '/boards/'+board_id
     });
 
     request.done(function(allMoves){

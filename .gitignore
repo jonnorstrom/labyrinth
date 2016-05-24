@@ -15,6 +15,7 @@ schema.rb
 /test/tmp/
 /test/version_tmp/
 /tmp
+.bundle/
 
 ## Specific to RubyMotion:
 .dat*

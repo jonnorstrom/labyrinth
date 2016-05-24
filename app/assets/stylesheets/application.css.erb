@@ -40,18 +40,18 @@
 
 /* Table cell background photos, need to figure out the sizing still */
  .wall {
-    background-image: url("wall.jpg");
+    background-image: url(<%= asset_path "wall.jpg" %>);
     /*"http://vignette3.wikia.nocookie.net/minecraft/images/5/50/Wiki-background/revision/20150401213801"*/
   }
 
  .maze-walker {
-   background-image: url("maze-walker.jpg");
+   background-image: url( <%= asset_path"maze-walker.jpg" %>);
    background-color: rgb(228, 116, 116);
    /*"http://diceratops.com/wp-content/uploads/2013/09/macho-man_pixelated.jpg"*/
  }
 
  .finish-line {
-   background-image: url("finish-line-more.jpg");
+   background-image: url( <%= asset_path"finish-line-more.jpg" %>);
    background-color: rgb(86, 86, 236);
    /*https://t1.ftcdn.net/jpg/00/86/07/20/500_F_86072024_RxjsztnxOdgfgMKEGQJyUejLGegcD1sV.jpg*/
  }

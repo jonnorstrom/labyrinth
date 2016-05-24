@@ -5,8 +5,8 @@ class BoardsController < ApplicationController
     @board = Board.create
     99.times do
       @board.maze << '.'
-      @board.save
     end
+    @board.save
   end
 
   def update
